@@ -21,7 +21,7 @@ jobs:
    - name: build and complie with mavn          
      run: |
        mvn clean install -DskipTests                    # cleans/deletes prior builds (mvn clean) skipping ests
-       mkdir staging && cp target/ *. jar staging       # creatign new folder and coping .jar file to it
+       mkdir staging && cp target/*.jar staging       # creatign new folder and coping .jar file to it
        
    - name: Upload a Build Artifact
      uses: actions/upload-artifact@v6.0.0
