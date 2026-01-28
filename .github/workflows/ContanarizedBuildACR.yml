@@ -24,14 +24,14 @@ jobs:
     - name: Azure ACR login
       run: az acr login --name registryforcimages   #  ACR name
 
-    - name: Docker Build (local tag)
+    - name: Docker Build 
       run: |
         docker build -t dotnet-sum:javaimage .   
 
     - name: Tag image for ACR
       run: |
          docker tag dotnet-sum:dotnetimage \
-         registryforcimages.azurecr.io/git-action-images:dotnetimage
+         registryforcimages.azurecr.io/git-action-images:javaimage
 
     - name: Push to Azure Container Registry
       run: |
