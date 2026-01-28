@@ -1,0 +1,40 @@
+name: javaBuild
+
+on:
+ - workflow_dispatch
+
+jobs:
+  Build:
+   runs-on: ubuntu-latest
+   steps:
+   - name: Checkout                           # copy and paste repo into ubuntu machine (agent) 
+     uses: actions/checkout@v6.0.2            # can specfy commit number as well: copies the repo in default GITHUB_WORKSPACE(default env var) in machine this is stored in memory (can't view it)
+     with:
+        repository: # optional, default is ${{ github.repository }}  
+
+   - name: setup JAVA JDK                   
+     uses: actions/setup-java@v5.2.0          # set up dependiency
+     with:
+        java-version: 17
+        distribution: microsoft
+
+   - name: build and complie with mavn          
+     run: |
+       mvn clean install -DskipTests                    # cleans/deletes prior builds (mvn clean) skipping ests
+       mkdir staging && cp target/ *. jar staging       # creatign new folder and coping .jar file to it
+       
+   - name: Upload a Build Artifact
+     uses: actions/upload-artifact@v6.0.0
+     with:
+       name: Package
+       path: staging
+
+      
+     
+       
+        
+      
+
+    
+    
+   
