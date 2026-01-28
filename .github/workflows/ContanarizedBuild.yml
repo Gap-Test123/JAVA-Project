@@ -24,8 +24,8 @@ jobs:
         
      - name: Docker Build
        run: |
-        docker build -t ${{vars.USERNAME}}/JAVAbuild/V1.0.0 .
+        docker build -t ${{vars.USERNAME}}/git-action-images/V1.0.0 .        # username/reponame/tag   repo if not availabe in docker will create new one
        
      - name: Push to Docker Registry
        run: |
-        docker push ${{vars.USERNAME}}/JAVAbuild/V1.0.0
+        docker push ${{vars.USERNAME}}/git-action-images/V1.0.0             # username/reponame/tag   repo if not availabe in docker will create new one
