@@ -1,0 +1,6 @@
+.git
+target/
+*.log
+.DS_Store
+README.md
+.github/
