@@ -30,7 +30,7 @@ jobs:
 
     - name: Tag image for ACR
       run: |
-         docker tag javaimage:javaimage \
+         docker tag java-sum:javaimage \
          registryforcimages.azurecr.io/git-action-images:javaimage
 
     - name: Push to Azure Container Registry
