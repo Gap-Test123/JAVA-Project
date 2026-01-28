@@ -23,8 +23,8 @@ jobs:
     - name: Docker login
       uses: docker/login-action@v3
       with:
-        username: ${{ secrets.DOCKER_USERNAME }}      # = maniish001
-        password: ${{ secrets.DOCKERHUB_TOKEN }}      # = same token you used in bash
+        username: ${{ secrets.USERNAME }}      # = maniish001
+        password: ${{ secrets.DOCKERPASS }}      # = same token you used in bash
 
     - name: Docker Build
       run: docker build -t maniish001/git-action-images:v1.0.0 .
